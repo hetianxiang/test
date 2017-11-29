@@ -3,11 +3,14 @@
  */
 import { combineReducers } from 'redux'
 import numberReducer from './number'
+import userReducer from './user'
 
 export const makeRootReducer = asyncReducers => {
   return combineReducers({
+    users:userReducer,
     num: numberReducer,
     ...asyncReducers,
+    
   })
 }
 

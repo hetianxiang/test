@@ -1,7 +1,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-class HomeView extends React.Component {
+class Detail extends React.Component {
   constructor(props) {
     super(...arguments)
     this.state = {
@@ -11,10 +11,10 @@ class HomeView extends React.Component {
   render () {
     return (
       <div>
-        <h1>Home</h1>
+        <h1>用户详细信息</h1>
       </div>
     )
   }
 }
 
-export default HomeView;
+export default Detail;
