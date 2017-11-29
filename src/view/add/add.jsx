@@ -11,7 +11,7 @@ class Add extends React.Component {
       
     }
   }
-  handleSubmit(){
+  handleSubmit = () => {
     let username = this.username.value;
     let useremail = this.useremail.value;
     if(!!username && !!useremail){
@@ -25,7 +25,7 @@ class Add extends React.Component {
         <input ref = {input => this.username = input} type="text" name="username" id="username" placeholder = "姓名"/>
         <label htmlFor="name">邮箱：</label>    
         <input ref = {input => this.useremail = input} type="email" name="useremail" id="useremail"/>
-        <button>提交</button>
+        <button onClick = {this.handleSubmit}>提交</button>
       </div>
     )
   }
@@ -33,5 +33,9 @@ class Add extends React.Component {
 
 export default connect(
   null,
-  null
+  dispatch => ({
+    sub:(data) => postUsers(data).then( msg =>
+      window.location.href = `/detail/${msg.id}`
+    )
+  })
 )(Add);
