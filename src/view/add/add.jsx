@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-dom'
 import {connect} from 'react-redux'
 import {postUsers} from 'fetch/user'
+import {addUser} from 'store/user'
 // import PropTypes from 'prop-types'
 
 class Add extends React.Component {
@@ -34,8 +35,9 @@ class Add extends React.Component {
 export default connect(
   null,
   dispatch => ({
-    sub:(data) => postUsers(data).then( msg =>
-      window.location.href = `/detail/${msg.id}`
+    sub:(data) => postUsers(data).then( msg =>{
+         dispatch(addUser({...data,id:msg.id}))
+      }   
     )
   })
 )(Add);

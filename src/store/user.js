@@ -1,12 +1,12 @@
-export const ADD = 'ADD'
+export const ADD_USER = 'ADD_USER'
 export const DELETE = 'DELETE'
 export const UPDATE = 'UPDATE'
 export const FETCH_USERS = 'FETCH_USERS'
 
 
-export function add (user) {
+export function addUser (user) {
   return {
-    type: ADD,
+    type: ADD_USER,
     payload: user,
   }
 }
@@ -27,6 +27,16 @@ export default function userReducer (state = initialState, action) {
       return {
         ...state,
         users:action.payload
+      }
+    case ADD_USER:
+      var {id, name, email} = action.payload
+      return {
+        ...state,
+        users:[...state.users,{
+          id,
+          name,
+          email
+        }]
       }
     default:
       return state;
