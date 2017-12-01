@@ -18,9 +18,9 @@ export default [
     component: HomeView,
   },
   {
-    exact: true,
+    exact: false,
     name: 'home',
-    path: '/detail',
+    path: '/detail/:id',
     component: Detail
   },
   {
