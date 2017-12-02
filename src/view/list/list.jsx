@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ListItem from './listItem'
 import {bindActionCreators} from 'react-redux'
-import Detail from 'view/detail'
 import {fetchUsers, delUser, updateUser} from '../../store/user'
 import {getUsers, delUsers, putUsers} from 'fetch/user'
 class List extends Component {
@@ -30,7 +29,7 @@ class List extends Component {
 }
 
 export default connect(
-  state => state.users,//{lesson:0,sliders:[],lessons}
+  state => state.users,
   dispatch => ({
     fetchUsers:() => getUsers().then(users=> {
       dispatch(fetchUsers(users));

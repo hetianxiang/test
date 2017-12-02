@@ -22,7 +22,7 @@ class ListItem extends Component {
   render() {  
     return (
       <div className ="list-group-item">    
-        <button onClick = {() => this.props.delUser(this.props.id)} className = "btn btn-danger" style={{float: "right"}}>删除</button>                    
+        <button onClick = {() => window.confirm('你是否要删除'+this.props.name)?this.props.delUser(this.props.id):null} className = "btn btn-danger" style={{float: "right"}}>删除</button>                    
         <button onClick = {this.updateUser} className = "btn btn-success" style={{float: "right"}}>修改</button>      
         <button className = "btn btn-success" style={{float: "right"}}>
           <Link to = {'/list/' + this.props.id}>详细信息</Link>
