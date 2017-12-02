@@ -20,7 +20,7 @@ export default [
   {
     exact: false,
     name: 'home',
-    path: '/detail/:id',
+    path: '/list/:id',
     component: Detail
   },
   {

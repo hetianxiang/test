@@ -14,6 +14,7 @@ class Detail extends React.Component {
     return (
       <div>
         <h1>用户详细信息</h1>
+        <p>{this.props.match.params.id}</p>
         <button>修改</button>
         <button>删除</button>        
       </div>
@@ -21,4 +22,4 @@ class Detail extends React.Component {
   }
 }
 
-export default Detail;
+export default Detail

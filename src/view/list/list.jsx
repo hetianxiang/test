@@ -2,21 +2,27 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ListItem from './listItem'
 import {bindActionCreators} from 'react-redux'
+import Detail from 'view/detail'
 import {fetchUsers, delUser, updateUser} from '../../store/user'
 import {getUsers, delUsers, putUsers} from 'fetch/user'
 class List extends Component {
+  constructor(props) {
+    super(...arguments)
+  }
   componentDidMount(){
     this.props.fetchUsers();
     console.log(this.props)
   }
+ 
   render() {
-    const list = this.props.users.map((user) =>(
-      <ListItem key = {user.id} {...user} updateUser = {this.props.updateUser} delUser = {this.props.delUser}/>
-    ) )
+    const list = this.props.users.map((user) =>{
+     return <ListItem key = { user.id } {...user} updateUser = {this.props.updateUser} delUser = {this.props.delUser}/>   
+    }
+  )
     return (
       <div className = "list-group">
         {
-          list
+          list  
         }      
       </div>
     );
